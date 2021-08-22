@@ -1,0 +1,11 @@
+[package]
+name = "memhack-dll"
+version = "0.1.0"
+authors = ["Jakobzs"]
+edition = "2018"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+windows_bindings = { path = "windows_bindings" }
