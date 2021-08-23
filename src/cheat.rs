@@ -1,15 +1,15 @@
 use std::error::Error;
 
 use windows_bindings::Windows::Win32::{
-    Foundation::{BOOL, PSTR},
+    Foundation::{BOOL, HINSTANCE, PSTR},
     System::{
         Console::{AllocConsole, FreeConsole},
         Diagnostics::Debug::GetLastError,
-        LibraryLoader::GetModuleHandleA,
+        LibraryLoader::{FreeLibraryAndExitThread, GetModuleHandleA},
     },
 };
 
-pub fn start() {
+pub fn start(module: HINSTANCE) {
     // Debug console
     open_debug_console().unwrap();
 
@@ -23,15 +23,16 @@ pub fn start() {
     let n = unsafe { *p };
 
     println!("{}", n);
+
+    close_cheat(module);
 }
 
 fn open_debug_console() -> Result<(), Box<dyn Error>> {
     if unsafe { AllocConsole() }.0 == 0 {
-        let testy = unsafe { GetLastError() };
-
-        let test = testy.0;
-
-        Err("failed opening console, GetLastError")?
+        Err(format!(
+            "failed opening console, GetLastError: {}",
+            unsafe { GetLastError() }.0
+        ))?
     } else {
         Ok(())
     }
@@ -42,5 +43,11 @@ fn close_debug_console() -> Result<(), Box<dyn Error>> {
         Err("failed closing console")?
     } else {
         Ok(())
+    }
+}
+
+fn close_cheat(module: HINSTANCE) {
+    unsafe {
+        FreeLibraryAndExitThread(module, 0);
     }
 }

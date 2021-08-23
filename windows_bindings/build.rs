@@ -5,5 +5,6 @@ fn main() {
         Windows::Win32::System::Console::{AllocConsole, FreeConsole},
         Windows::Win32::System::LibraryLoader::GetModuleHandleA,
         Windows::Win32::System::Diagnostics::Debug::GetLastError,
+        Windows::Win32::System::LibraryLoader::FreeLibraryAndExitThread,
     );
 }
