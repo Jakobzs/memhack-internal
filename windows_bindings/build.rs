@@ -6,5 +6,7 @@ fn main() {
         Windows::Win32::System::LibraryLoader::GetModuleHandleA,
         Windows::Win32::System::Diagnostics::Debug::GetLastError,
         Windows::Win32::System::LibraryLoader::FreeLibraryAndExitThread,
+        Windows::Win32::System::ProcessStatus::{MODULEINFO, K32GetModuleInformation},
+        Windows::Win32::System::Threading::GetCurrentProcess,
     );
 }

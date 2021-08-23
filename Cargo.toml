@@ -9,3 +9,4 @@ crate-type = ["cdylib"]
 
 [dependencies]
 windows_bindings = { path = "windows_bindings" }
+num_cpus = "1.13"
