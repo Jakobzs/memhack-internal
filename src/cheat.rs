@@ -1,3 +1,5 @@
+use std::os::windows::process;
+
 use windows_bindings::Windows::Win32::{
     Foundation::PSTR,
     System::{Console::AllocConsole, LibraryLoader::GetModuleHandleA},
@@ -13,8 +15,8 @@ pub fn start() {
 
     println!("Test: {:#01x}", process_base_address.0);
 
-    /*let p = 0x282A6325270 as *const u32;
+    let p = process_base_address.0 as *const u32;
     let n = unsafe { std::ptr::read(p) };
 
-    println!("{}", n);*/
+    println!("{}", n);
 }
