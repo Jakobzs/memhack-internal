@@ -1,3 +1,3 @@
 # memhack internal
 
-An example crate of an internal cheat for Windows using the Rust language.
+An example crate of a Windows-only internal cheat using the Rust language.
