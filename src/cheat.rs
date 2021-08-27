@@ -21,19 +21,18 @@ pub fn start(module: HINSTANCE) {
 
     println!("Hello from DLL!");
 
-    let process_base_address = unsafe { GetModuleHandleA(PSTR(std::ptr::null_mut())) };
-
+    // Example of getting base address
+    /*let process_base_address = unsafe { GetModuleHandleA(PSTR(std::ptr::null_mut())) };
     println!("Test: {:#01x}", process_base_address.0);
-
     let p = process_base_address.0 as *const u32;
     let n = unsafe { *p };
+    println!("{}", n);*/
+
+    // Example of pattern scanning
+    /*let my_cool_pattern = pattern_scan("notepad.exe", "? 15 7B 34 02 ? 48").unwrap();
+    println!("{:#01x}", my_cool_pattern);*/
 
     // TODO: Detouring
-
-    println!("{}", n);
-
-    let my_cool_pattern = pattern_scan("notepad.exe", "? 15 7B 34 02 ? 48").unwrap();
-    println!("{:#01x}", my_cool_pattern);
 }
 
 // Sample pattern scanning reference:
