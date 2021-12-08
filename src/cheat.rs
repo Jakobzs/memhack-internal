@@ -4,11 +4,10 @@ use std::{
     ops::Add,
 };
 
-use windows_bindings::Windows::Win32::{
-    Foundation::{BOOL, HINSTANCE, PSTR},
+use windows::Win32::{
+    Foundation::{GetLastError, HINSTANCE, PSTR},
     System::{
         Console::{AllocConsole, FreeConsole},
-        Diagnostics::Debug::GetLastError,
         LibraryLoader::{FreeLibraryAndExitThread, GetModuleHandleA},
         ProcessStatus::{K32GetModuleInformation, MODULEINFO},
         Threading::GetCurrentProcess,

@@ -1,10 +1,6 @@
 use std::ffi::c_void;
-use windows_bindings::Windows::Win32::{
-    Foundation::{BOOL, HINSTANCE},
-    System::SystemServices::{
-        DLL_PROCESS_ATTACH, DLL_PROCESS_DETACH, DLL_THREAD_ATTACH, DLL_THREAD_DETACH,
-    },
-};
+
+use windows::Win32::Foundation::{BOOL, HINSTANCE};
 
 mod cheat;
 
