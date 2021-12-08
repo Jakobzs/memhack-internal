@@ -3,7 +3,6 @@ use std::{
     ffi::{CStr, CString},
     ops::Add,
 };
-
 use windows::Win32::{
     Foundation::{GetLastError, HINSTANCE, PSTR},
     System::{

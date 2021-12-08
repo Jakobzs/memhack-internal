@@ -1,5 +1,4 @@
 use std::ffi::c_void;
-
 use windows::Win32::Foundation::{BOOL, HINSTANCE};
 
 mod cheat;
